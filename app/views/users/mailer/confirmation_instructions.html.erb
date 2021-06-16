@@ -1,5 +1,9 @@
-<p>Welcome <%= @email %>!</p>
+<p>こんにちは !</p>
 
-<p>You can confirm your account email through the link below:</p>
+<p>ユーザー登録を完了してください。</p>
 
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+<p><%= link_to 'メールアドレス確認', controller: 'users/confirmations', action: 'create', confirmation_token: @token %></p>
+
+<p>心当たりがない場合は、本メッセージは破棄してください。</p>
+
+<p>Ruby on Rails</p>
