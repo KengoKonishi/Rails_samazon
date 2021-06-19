@@ -1,2 +1,3 @@
- class Users::Mailer < Devise::Mailer
- end
+  class Users::Mailer < Devise::Mailer
+  end
+

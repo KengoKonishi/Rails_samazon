@@ -44,6 +44,15 @@ gem 'jquery-rails'
 # 環境変数を使用できる
 gem 'dotenv-rails'
 
+# socialiizatioinを使用できる
+gem 'socialization'
+
+ # ページネーションを実装できる
+gem 'kaminari'
+
+ # それらしい値を自動生成できる
+gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -70,3 +79,4 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
