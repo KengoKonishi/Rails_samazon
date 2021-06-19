@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  
+ 
+
   devise_for :users, :controllers => {
     :registrations => 'users/registrations',
     :sessions => 'users/sessions',
@@ -8,7 +9,9 @@ Rails.application.routes.draw do
     :unlocks => 'users/unlocks',
   }
 
+
   devise_scope :user do
+
     root :to => "users/sessions#new"
     get "signup", :to => "users/registrations#new"
     get "verify", :to => "users/registrations#verify"
@@ -22,4 +25,5 @@ Rails.application.routes.draw do
     end
     resources :reviews, only: [:create]
   end
+
 end
