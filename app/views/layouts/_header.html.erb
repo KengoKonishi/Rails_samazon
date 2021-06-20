@@ -1,8 +1,6 @@
 <header>
   <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm samazon-header-container">
-    <%= link_to root_path do %>
-    
-v   <% end %>
+    <p>samazon</p>
     <form class="form-inline">
       <div class="form-group">
         <input class="form-control samazon-header-search-input">
@@ -21,8 +19,8 @@ v   <% end %>
       <!-- user_signed_in? はユーザがログインしているか調べるdeviseのHelperメソッド -->
       <% if user_signed_in? %>
         <li class="nav-item mr-5">
-          <%= link_to "ログアウト", logout_path, onclick: "event.preventDefault(); document.getElementById('logout-form').submit();" %>
-          <%= form_with url: logout_path, style: "display: none;", method: "get", id: "logout-form" do |f| %>
+          <%= link_to mypage_users_path, class: "nav-link" do %>
+            <i class="fas fa-user mr-1"></i><label>マイページ</label>
           <% end %>
         </li>
       <% else %>
