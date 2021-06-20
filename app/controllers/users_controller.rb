@@ -30,6 +30,10 @@ class UsersController < ApplicationController
   def edit_password
   end
   
+  def favorite
+    @favorites = @user.likees(Product)
+  end
+  
   private
     def set_user
       @user = current_user
