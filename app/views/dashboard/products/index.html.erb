@@ -43,7 +43,13 @@
       <% @products.each do |product| %>
       <tr>
         <th scope="row"><%= product.id %></td>
-        <td><%= image_tag "/images/dummy.png", class: "img-fluid h-10" %></td>
+         <td>
+           <% if @product.image.attached? %>
+             <%= image_tag product.image, class: "h-10 img-fluid" %>
+           <% else %>
+             <%= image_tag "/images/dummy.png", class: "h-10 img-fluid" %>
+           <% end %>
+         </td>
         <td><%= product.name %></td>
         <td><%= product.price %></td>
         <td><%= product.category.name %></td>
