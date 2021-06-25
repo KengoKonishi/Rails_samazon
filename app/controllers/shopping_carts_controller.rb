@@ -6,6 +6,7 @@ class ShoppingCartsController < ApplicationController
     @user_cart_items_count = ShoppingCartItem.user_cart_items(@user_cart).count
     @user_cart_item_ids = ShoppingCartItem.user_cart_item_ids(@user_cart)
     @product_names = Product.in_cart_product_names(@user_cart_item_ids)
+    @user_cart.shipping_cost_check(current_user)
     @total = @user_cart.total
   end
   
