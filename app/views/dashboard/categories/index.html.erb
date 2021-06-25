@@ -12,8 +12,8 @@
     </div>
 
     <div class="form-group">
-      <%= f.label :major_category_name, "カテゴリ" %>
-      <%= f.text_field :major_category_name, class: "form-control" %>
+      <%= f.label :major_category_id, "親カテゴリ" %>
+      <%= f.select :major_category_id, @major_categories.map { |mc| [mc.name, mc.id] }, {}, class: "form-control" %>
     </div>
 
     <div class="form-group">
