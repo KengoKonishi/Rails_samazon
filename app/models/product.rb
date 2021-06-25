@@ -36,6 +36,7 @@ class Product < ApplicationRecord
   scope :in_cart_product_names, -> (cart_item_ids) { where(id: cart_item_ids).pluck(:name) }
   scope :recently_products, -> (number) { order(created_at: "desc").take(number) }
   scope :recommend_products, -> (number) { where(recommended_flag: true).take(number) }
+  scope :check_products_carriage_list, -> (product_ids) { where(id: product_ids).pluck(:carriage_flag)}
 
   def reviews_new
     reviews.new
