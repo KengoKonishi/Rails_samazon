@@ -5,23 +5,25 @@
     <div class="col-9">
       <h1>おすすめ商品</h1>
       <div class="row">
-
-        <% @recommend_products.each do |recommend_product| %>
-        <div class="col-4">
-          <%= link_to product_path(recommend_product) do %>
-            <%= image_tag "/images/dummy.png", class: "img-thumbnail" %>
-          <% end %>
-          <div class="row">
-            <div class="col-12">
-              <p class="samazon-product-level mt-2">
-                <%= recommend_product.name %>
-                <label>￥<%= recommend_product.price %>
-              </p>
-            </div>
-          </div>
-        </div>
-        <% end %>
-        
+       <% @recommend_products.each do |recommend_product| %>
+       <div class="col-4">
+         <%= link_to product_path(recommend_product) do %>
+           <% if srecommend_product.image.attached? %>
+             <%= image_tag recommend_product.image, class: "img-thumbnail" %>
+           <% else %>
+             <%= image_tag "/images/dummy.png", class: "img-thumbnail" %>
+           <% end %>
+         <% end %>
+         <div class="row">
+           <div class="col-12">
+             <p class="samazon-product-level mt-2">
+               <%= recommend_product.name %>
+               <label>￥<%= recommend_product.price %>
+             </p>
+           </div>
+         </div>
+       </div>
+       <% end %>
       </div>
 
       <h1>新着商品</h1>
@@ -29,7 +31,11 @@
         <% @recently_products.each do |recently_product| %>
         <div class="col-3">
           <%= link_to product_path(recently_product) do %>
-            <%= image_tag "/images/dummy.png", class: "img-thumbnail" %>
+           <% if recently_product.image.attached? %>
+             <%= image_tag recently_product.image, class: "img-thumbnail" %>
+           <% else %>
+             <%= image_tag "/images/dummy.png", class: "img-thumbnail" %>
+           <% end %>
           <% end %>
           <div class="row">
             <div class="col-12">
@@ -45,4 +51,3 @@
     </div>
   </div>
 </div>
- 

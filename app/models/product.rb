@@ -2,6 +2,7 @@ class Product < ApplicationRecord
   belongs_to :category
   has_many :reviews
   acts_as_likeable
+  has_one_attached :image
 
   extend DisplayList
   scope :on_category, -> (category) { where(category_id: category) }
