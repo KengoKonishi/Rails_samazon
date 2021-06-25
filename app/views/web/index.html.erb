@@ -50,61 +50,24 @@
 
       <h1>新着商品</h1>
       <div class="row">
-        <div class="col-3">
-          <%= link_to "#", class: "img-thumbnail" do %>
-            <%= image_tag "/images/panasonic.png", class: "img-thumbnail"%>
-          <% end %>
-          <div class="row">
-            <div class="col-12">
-              <p class="samazon-product-label mt-2">
-                掃除機本体 Panasonic<br>
-                <label>￥15000</label>
-              </p>
-            </div>
-          </div>
-        </div>
+        <% @recently_products.each do |recently_product| %>
+         <div class="col-3">
+           <%= link_to product_path(recently_product) do %>
+             <%= image_tag "/images/dummy.png", class: "img-thumbnail" %>
+           <% end %>
+           <div class="row">
+             <div class="col-12">
+               <p class="samazon-product-level mt-2">
+                 <%= recently_product.name %>
+                 <label>￥<%= recently_product.price %>
+               </p>
+             </div>
+           </div>
+         </div>
+         <% end %>
 
-        <div class="col-3">
-          <%= link_to "#", class: "img-thumbnail" do %>
-            <%= image_tag "/images/sofa.png", class: "img-thumbnail"%>
-          <% end %>
-          <div class="row">
-            <div class="col-12">
-              <p class="samazon-product-label mt-2">
-              3人掛けソファー ブラウン<br>
-              <label>￥35000</label>
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-3">
-        <%= link_to "#", class: "img-thumbnail" do %>
-          <%= image_tag "/images/item.png", class: "img-thumbnail"%>
-        <% end %>
-        <div class="row">
-          <div class="col-12">
-            <p class="samazon-product-label mt-2">
-              柔軟剤 詰め替え 2L<br>
-              <label>￥1000</labiel>
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-3">
-        <%= link_to "#", class: "img-thumbnail" do %>
-          <%= image_tag "/images/goods.png", class: "img-thumbnail"%>
-        <% end %>
-        <div class="row">
-          <div class="col-12">
-            <p class="samazon-product-label mt-2">
-              食器 カトラリーセット1組<br>
-              <label>￥2000</label>
-            </p>
-          </div>
-        </div>
       </div>
     </div>
   </div>
 </div>
+ 

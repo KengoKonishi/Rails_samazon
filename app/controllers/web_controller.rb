@@ -1,4 +1,7 @@
 class WebController < ApplicationController
+  
+  PRODUCTS_PER_PAGE = 4
+  
   def index
     if sort_params.present?
       @category = Category.request_category(sort_params[:sort_category])
@@ -12,6 +15,7 @@ class WebController < ApplicationController
  
     @major_category_names = Category.major_categories
     @categories = Category.all
+    @recently_products = Product.recently_products(PRODUCTS_PER_PAGE)
   end
   
   private

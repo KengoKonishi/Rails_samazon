@@ -29,7 +29,8 @@ class Product < ApplicationRecord
    }
    
    scope :in_cart_product_names, -> (cart_item_ids) { where(id: cart_item_ids).pluck(:name) }
-  
+   scope :recently_products, -> (number) { order(created_at: "desc").take(number) }
+   
   def reviews_new
      reviews.new
   end
