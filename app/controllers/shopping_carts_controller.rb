@@ -26,6 +26,14 @@ class ShoppingCartsController < ApplicationController
   def destroy
     @user_cart.buy_flag = true
     @user_cart.save
+    
+    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+    Payjp::Charge.create( 
+                          :customer => current_user.token,
+                          :amount => @user_cart.total.to_i,
+                          :currency => 'jpy'
+                        )
+    
     redirect_to cart_users_url
   end
   
